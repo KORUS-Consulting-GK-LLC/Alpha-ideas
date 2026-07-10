@@ -4,13 +4,14 @@
 
 ## Быстрый старт
 
-1. Создай карточку идеи в `ideas/` по шаблону [templates/idea-card.md](templates/idea-card.md).
-2. Зафиксируй исходный импульс без преждевременной полировки.
-3. Попроси агента обогатить карточку по [process/pipeline.md](process/pipeline.md).
-4. Складывай исследования в `research/<slug>/`.
-5. Складывай артефакты, схемы, прототипы и экспортные материалы в `artefacts/<slug>/`.
-6. Если идея готова к работе, сформируй план в `plans/<slug>/`.
-7. Когда идея становится отдельным проектом, подготовь handoff по [templates/export-handoff.md](templates/export-handoff.md).
+1. После первого клонирования выполни обживание каталога по [process/workspace-onboarding.md](process/workspace-onboarding.md): локально создаются `.agent/` и `LOCALIZATION.md`, они не публикуются.
+2. Создай карточку идеи в `ideas/` по шаблону [templates/idea-card.md](templates/idea-card.md).
+3. Зафиксируй исходный импульс без преждевременной полировки.
+4. Попроси агента обогатить карточку по [process/pipeline.md](process/pipeline.md).
+5. Складывай исследования в `research/<slug>/`.
+6. Складывай артефакты, схемы, прототипы и экспортные материалы в `artefacts/<slug>/`.
+7. Если идея готова к работе, сформируй план в `plans/<slug>/`.
+8. Когда идея становится отдельным проектом, подготовь handoff по [templates/export-handoff.md](templates/export-handoff.md).
 
 ## Структура
 
@@ -19,7 +20,7 @@
 - [plans/](plans/) — планы пилотов, дорожные карты и критерии готовности.
 - [artefacts/](artefacts/) — схемы, документы, прототипы, материалы и экспортные файлы.
 - [memory/](memory/) — долговременная память проекта: решения, глоссарий, принципы, устойчивые договоренности.
-- [process/](process/) — pipeline, роли, quality gates и playbook для агентов.
+- [process/](process/) — pipeline, роли, quality gates, playbook и обживание локального клона.
 - [templates/](templates/) — шаблоны карточек, исследований, планов, handoff и контекстов артефактов.
 - [.github/](.github/) — шаблоны GitHub Issue и Pull Request.
 - [LOCALIZATION.example.md](LOCALIZATION.example.md) — шаблон локализации окружения; каждый участник копирует его в игнорируемый `LOCALIZATION.md`.

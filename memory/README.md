@@ -8,6 +8,7 @@
 - [decisions.md](decisions.md) — журнал устойчивых решений.
 - [glossary.md](glossary.md) — словарь терминов и статусов.
 - [evaluation.md](evaluation.md) — критерии оценки и готовности идей.
+- [../process/workspace-onboarding.md](../process/workspace-onboarding.md) — первичное обживание локального клона агентом.
 - [../LOCALIZATION.example.md](../LOCALIZATION.example.md) — шаблон локальной карты окружения участника.
 
 ## Что сюда не складывать
