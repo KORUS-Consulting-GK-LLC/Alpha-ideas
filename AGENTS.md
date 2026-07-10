@@ -36,6 +36,7 @@
 
 - Основной pipeline описан в [process/pipeline.md](process/pipeline.md).
 - Новая идея фиксируется карточкой в `ideas/` по шаблону [templates/idea-card.md](templates/idea-card.md).
+- `templates/idea-card.md` — единственный канонический шаблон карточки идеи; не поддерживать второй шаблон в `ideas/`.
 - Одна идея должна иметь один устойчивый `slug`.
 - Все связанные материалы используют тот же `slug`:
   - `ideas/YYYY-MM-DD-<slug>.md` — карточка идеи;

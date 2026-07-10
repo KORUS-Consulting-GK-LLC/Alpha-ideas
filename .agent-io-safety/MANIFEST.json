@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "packageVersion": "0.1.7",
+  "packageVersion": "0.1.8",
   "language": "ru",
   "files": [
     {
@@ -17,7 +17,7 @@
     },
     {
       "path": "docs/field-notes.md",
-      "sha256": "1942cdae294cba226013e99df87b62950b41ac3ceec075d3e7f838f8367c1879"
+      "sha256": "aa806cc19702ca9199794db05c9b5df1562dd1d1a351cd8e1baddec54c4a5a9f"
     },
     {
       "path": "docs/language-policy.md",
@@ -49,7 +49,7 @@
     },
     {
       "path": "docs/ru/field-notes.md",
-      "sha256": "38c3017b8098d02785f30fa86e5f02e182d17ab96f5370396da6dfc99c0b411c"
+      "sha256": "6520f93f81ea292e4136a04d2752c0872672ccdeb4d79d1422cf4c55c2912670"
     },
     {
       "path": "docs/ru/language-policy.md",
@@ -121,7 +121,7 @@
     },
     {
       "path": "RULE.md",
-      "sha256": "8443ff7698aa114a985e35dff322f57f2d252e8649a2a83509ecd83d85e169a9"
+      "sha256": "ba209135145bd30f2fd92cebaa2461aeb2c06cc617b1dd6470c47ffa58a64b01"
     },
     {
       "path": "skills/safe-shell-io/agents/openai.yaml",
@@ -160,6 +160,10 @@
       "sha256": "12a7e5a232d7cc3bb8840c873c3ccd9c5f8e2f10e6e46e745ae3ca2d97a04c45"
     },
     {
+      "path": "skills/safe-text-io/scripts/list-paths.mjs",
+      "sha256": "d674544a6dd463745eb6949a7429e05c59cfeb9174a8761aa595baa4e133dd9e"
+    },
+    {
       "path": "skills/safe-text-io/scripts/read-text.mjs",
       "sha256": "5f50525dccd0b3a02a36c5f042ca51cc0bf9182428e5f8814ecd3479a58962ec"
     },
@@ -173,11 +177,11 @@
     },
     {
       "path": "skills/safe-text-io/SKILL.md",
-      "sha256": "d0bd02f0b1d41c0793d3653e643adc9d2c5778076da4927b84fd70a126f5ec04"
+      "sha256": "8aaa88c8df16b27e50ee1dac42b28c892dae10d0315d70667e4ffd64be28d416"
     },
     {
       "path": "VERSION",
-      "sha256": "ba57e7c7f71876d645bcdd9fb070f2dea8e6db5ed284a7e3d85c6b7d2409fef1"
+      "sha256": "76f81f64ece28d0bcfe39dd35f6d14f3c87fe000b77aee11561e18d1919f607e"
     }
   ]
 }

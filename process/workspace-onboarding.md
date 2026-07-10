@@ -48,7 +48,8 @@
    - `LOCALIZATION.md`;
    - временные файлы, кэши, окружения и секреты.
 9. Выполнить быструю проверку структуры:
-   - `rg --files`, если доступен;
+   - `node .agent-io-safety/skills/safe-text-io/scripts/list-paths.mjs --recursive --json .` для безопасного UTF-8 листинга путей;
+   - `rg --files`, если нужен быстрый поиск и имена файлов не искажаются на terminal boundary;
    - `git status -sb --ignored`, если доступен Git;
    - `node .agent-io-safety/skills/safe-text-io/scripts/inspect-text.mjs --fail-on-bom --eol lf` для затронутых текстовых файлов.
 10. Сообщить участнику краткий итог: корень, статус локализации, что создано в `.agent/`, какие проверки прошли, какие значения еще нужно заполнить.
