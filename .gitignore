@@ -1,0 +1,48 @@
+# Local agent working memory
+/.agent/
+
+# User-specific local environment map
+/LOCALIZATION.md
+
+# Local environments and secrets
+.env
+.env.*
+!.env.example
+.venv/
+venv/
+
+# Dependencies and tool caches
+node_modules/
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.npm/
+.pnpm-store/
+
+# Caches and temporary files
+.cache/
+.tmp/
+tmp/
+temp/
+*.log
+*.tmp
+*.bak
+*.orig
+*.rej
+*.pid
+
+# OS and editor noise
+.DS_Store
+Thumbs.db
+desktop.ini
+*.swp
+*.swo
+*~
+.idea/
+.vscode/
+
+# Draw.io local/autosave files
+*.drawio.bkp
+*.drawio.dtmp

@@ -1,0 +1,38 @@
+name: Idea
+description: Добавить новую идею в Alpha-Ideas
+title: "[Idea]: "
+labels:
+  - idea
+body:
+  - type: textarea
+    id: impulse
+    attributes:
+      label: Исходный импульс
+      description: Опиши идею живым языком, без необходимости сразу структурировать.
+    validations:
+      required: true
+  - type: input
+    id: author
+    attributes:
+      label: Автор
+    validations:
+      required: false
+  - type: input
+    id: audience
+    attributes:
+      label: Для кого это может быть полезно
+    validations:
+      required: false
+  - type: textarea
+    id: context
+    attributes:
+      label: Контекст
+      description: Откуда появилась идея, какие материалы или наблюдения связаны.
+    validations:
+      required: false
+  - type: textarea
+    id: next
+    attributes:
+      label: Что хочется сделать дальше
+    validations:
+      required: false
