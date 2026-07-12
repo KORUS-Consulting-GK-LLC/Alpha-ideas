@@ -14,4 +14,5 @@
 
 ## Индекс
 
-Пока идей нет. Новые идеи добавлять сюда вручную или через агента.
+- [Idea to Pilot Kit: командный плагин Codex для workflow идей](2026-07-12-idea-to-pilot-kit.md) - team-first плагин для Codex / ChatGPT Work, который упаковывает повторяемые workflow Alpha Ideas от intake идеи до research и handoff.
+- [Плагин Codex для 1С-разработчиков](2026-07-12-codex-plugin-1c-developers.md) - плагин для Codex, который должен упростить ежедневную работу 1С-разработчиков и найти сильный сценарий, где Codex станет удобнее Cursor и VS Code.
