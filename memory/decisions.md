@@ -27,3 +27,9 @@
 - В `LOCALIZATION.example.md` персональный пример пути заменен на плейсхолдер локального клона.
 - `.agent-io-safety/` обновлен из `Stakkkkk/agent-io-safety-kit` до версии `0.1.8`.
 - В onboarding добавлен безопасный листинг путей через `safe-text-io/scripts/list-paths.mjs`.
+
+## 2026-07-18 16:26:11 +07:00
+
+- `.agent-io-safety/` обновлен из `Stakkkkk/agent-io-safety-kit` до версии `0.2.1`.
+- Для установленного комплекта выбран deployment profile `full`, чтобы сохранить полный набор docs, examples и hook adapters в командном репозитории.
+- Manifest обновлен до schema v2; managed block в `AGENTS.md` обновлен стандартным deployment-фрагментом safety-kit.

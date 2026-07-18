@@ -41,7 +41,54 @@ Use `--print-normalized` for a local dry check:
 node skills/safe-shell-io/scripts/remote-bash.mjs --print-normalized host script.sh
 ```
 
+If normal `ssh host ...` works but the helper does not, check which SSH executable and environment the helper sees:
+
+```sh
+node skills/safe-shell-io/scripts/remote-bash.mjs --diagnose-ssh host script.sh
+```
+
+On Windows, force the same OpenSSH executable, config, and identity that work interactively:
+
+```sh
+node skills/safe-shell-io/scripts/remote-bash.mjs --ssh "C:\Windows\System32\OpenSSH\ssh.exe" --ssh-arg -F --ssh-arg "C:\Users\me\.ssh\config" --ssh-arg -i --ssh-arg "C:\Users\me\.ssh\id_ed25519" host script.sh
+```
+
+Pass each SSH option as its own repeated `--ssh-arg`.
+
 The helper reads the script as strict UTF-8, rejects UTF-16/invalid UTF-8, converts `CRLF`/`CR` to `LF`, and sends bytes to `ssh host bash -s` without a local shell.
+
+## Docker inspect Go templates through PowerShell and SSH
+
+Docker's `--format` value is a Go template with braces, quotes, variables, and function calls. Docker itself documents shell-specific quoting for these templates: <https://docs.docker.com/engine/cli/formatting/>. Adding both PowerShell and a remote shell makes an inline command such as this nondeterministic:
+
+```powershell
+ssh host "docker inspect -f '{{...}}' container"
+```
+
+Do not repair `template parsing error: unterminated quoted string` by trying more quote combinations. Put the command in a local strict UTF-8/LF Bash file instead. In a `full` deployment, `examples/docker-remote-inspect.sh` demonstrates a secret-minimizing inspection that prints the configured user, label keys, and environment-variable names without environment values:
+
+```sh
+node skills/safe-shell-io/scripts/remote-bash.mjs --print-normalized host examples/docker-remote-inspect.sh
+node skills/safe-shell-io/scripts/remote-bash.mjs host examples/docker-remote-inspect.sh
+```
+
+Edit the fixed container name in the reviewed script before execution. Do not interpolate an untrusted container name or template into the SSH command.
+
+## Preflight before Docker bind-mount changes
+
+Bind mounts expose host paths directly to containers and can modify host filesystem data; Docker documents this boundary at <https://docs.docker.com/engine/storage/bind-mounts/>. Treat ownership/mode migrations as two distinct phases.
+
+Phase 1 is read-only and must finish before `docker compose down`:
+
+1. Check whether the current account is root or `sudo -n true` succeeds. Interactive sudo is not acceptable in an unattended agent operation.
+2. While the container is still running, obtain its effective UID/GID with `docker exec <container> id -u` and `id -g`; do not rely on a product-wide default such as `7474:7474` without verifying the actual image/container.
+3. Run `stat -c 'uid=%u gid=%g mode=%a path=%n' -- <path>` for every existing bind source and the parent of every path that will be created.
+4. Confirm that the planned UID/GID matches the running process and identify every path that needs `chown`/`chmod`.
+5. For restricted sudoers, read-only filesystems, NFS root-squash, or similar boundaries, arrange an approved disposable ownership probe on the same filesystem. `sudo -n true` alone cannot prove that a particular filesystem accepts `chown`.
+
+`examples/docker-bind-mount-preflight.sh` implements the non-mutating checks with fixed reviewed values. Run it locally on the Docker host or send it with `remote-bash.mjs`. It contains no `down`, move, directory creation, ownership change, or mode change.
+
+Only after it prints `READY` should phase 2 stop containers, make backups, recreate paths, change ownership/modes, and start the stack. Keep rollback paths and verification in that separate state-changing script. If the preflight cannot prove privilege or identity, stop before changing state and ask the user/admin.
 
 ## PowerShell/SSH newline escapes
 
@@ -55,7 +102,7 @@ ssh host "echo 'line 1'; echo 'line 2'"
 
 For generated or user-controlled payloads, do not use `echo`. Upload a file, stream bytes through stdin, or send JSON/Base64 data and decode it remotely.
 
-See `examples/powershell-ssh-newlines.md`.
+See `examples/powershell-ssh-newlines.md` in a `full` deployment; this recipe remains self-contained in `core`.
 
 ## `ssh -n`
 
